@@ -1,0 +1,38 @@
+id,name,category,brand,price,originalPrice,image,description,inStock,rating,reviews,isPromo
+1,iPhone 15 Pro Max,Smartphones,Apple,1299.99,1499.99,/images/iphone-15-pro-max.jpg,"Topo de gama com chassis em titânio, chip A17 Pro, câmara principal 48MP e ecrã ProMotion 120Hz.",True,4.9,320,True
+2,Samsung Galaxy S24 Ultra,Smartphones,Samsung,1299.99,1399.99,/images/galaxy-s24-ultra.jpg,"Smartphone premium com S Pen, zoom ótico 10x e ecrã Dynamic AMOLED 120Hz.",True,4.8,410,True
+3,Xiaomi 14 Pro,Smartphones,Xiaomi,999.99,1099.99,/images/xiaomi-14-pro.jpg,"Parceria Leica, Snapdragon topo de gama e carregamento turbo 120W.",True,4.7,250,True
+4,Google Pixel 8 Pro,Smartphones,Google,1099.99,1199.99,/images/pixel8pro.jpg,Fotografia computacional avançada com 7 anos de atualizações garantidas.,True,4.7,300,False
+5,OnePlus 12,Smartphones,OnePlus,999.99,1099.99,/images/oneplus-12.jpg,Desempenho extremo com Snapdragon 8 Gen 3 e carregamento ultrarrápido.,True,4.7,210,True
+6,MacBook Air M3,Computadores,Apple,1299.0,1499.0,/images/macbook-air-m3.jpg,"Leve e eficiente, com chip M3 e até 18h de autonomia.",True,4.8,210,True
+7,MacBook Pro 14 M3 Pro,Computadores,Apple,2299.0,2499.0,/images/macbook-pro14-m3pro.jpg,Performance extrema com chip M3 Pro e ecrã Liquid Retina XDR.,True,4.9,180,True
+8,ASUS ROG Zephyrus G14,Computadores,Asus,1899.0,2099.0,/images/asus-zephyrus-g14.jpg,"Portátil gaming com Ryzen 9, RTX 4070 e ecrã 14'' QHD.",True,4.9,160,True
+9,Dell XPS 13 Plus,Computadores,Dell,1599.0,1799.0,/images/dell-xps13plus.jpg,Ultrabook premium com design futurista e ecrã OLED 3.5K.,True,4.7,100,True
+10,HP Spectre x360 14,Computadores,HP,1399.0,1599.0,/images/hp-spectre-x360.jpg,Convertible 2-em-1 com ecrã OLED táctil e autonomia até 16h.,True,4.6,95,True
+11,Dell UltraSharp 27 4K,Monitores,Dell,549.0,649.0,/images/dell-ultrasharp-27.jpg,Monitor UHD 4K IPS com 99% sRGB e HDR600.,True,4.7,150,True
+12,LG UltraGear 32GP850,Monitores,LG,449.0,499.0,/images/lg-ultragear-32.jpg,Monitor gaming 32'' QHD 165Hz com G-Sync.,True,4.8,120,True
+13,Asus ProArt PA32DC,Monitores,Asus,2299.0,2499.0,/images/asus-proart-pa32dc.jpg,Monitor OLED profissional 32'' HDR com calibração de fábrica.,True,5.0,40,True
+14,Samsung Odyssey G9,Monitores,Samsung,1499.0,1699.0,/images/samsung-odyssey-g9.jpg,Monitor curvo ultrawide 49'' QHD 240Hz.,True,4.9,85,True
+15,"Apple iPad Air (M2) 11""",Apple iPad,Apple,769.0,849.0,/images/ipad-air-m2.jpg,"Poder M2 num corpo leve. Compatível com Apple Pencil Pro, ecrã Liquid Retina e Touch ID no topo.",True,4.8,310,True
+16,"iPad Pro 12.9"" (M2)",Apple iPad,Apple,1299.0,1399.0,/images/ipad-pro-129-m2.jpg,"iPad mais poderoso para criadores. Ecrã mini-LED XDR, ProMotion 120Hz e câmaras com LiDAR.",True,4.9,275,True
+17,Samsung Galaxy Tab S9+,Tablets,Samsung,999.0,1099.0,/images/galaxy-tab-s9-plus.jpg,Ecrã AMOLED 12.4'' com S Pen incluída e resistência IP68.,True,4.8,210,True
+18,Xiaomi Pad 6,Tablets,Xiaomi,399.0,449.0,/images/xiaomi-pad-6.jpg,Ecrã 144Hz e Dolby Vision/Atmos a preço acessível.,True,4.7,140,True
+19,PlayStation 5 Slim,Gaming,Sony,549.99,599.99,/images/ps5-slim.jpg,Nova versão Slim com armazenamento 1TB e Ray Tracing.,True,4.9,1200,True
+20,Xbox Series X,Gaming,Microsoft,519.99,569.99,/images/xbox-series-x.jpg,Desempenho 4K com 120 FPS e SSD ultrarrápido.,True,4.8,950,True
+21,DualSense Edge Controller,Gaming,Sony,239.99,269.99,/images/dualsense-edge.jpg,Comando Pro com triggers ajustáveis e back paddles.,True,4.7,400,True
+22,Razer BlackShark V2 Headset,Gaming,Razer,119.99,139.99,/images/razer-blackshark-v2.jpg,Headset gaming com drivers Triforce e THX Spatial Audio.,True,4.7,560,True
+23,AirPods Pro 2ª Geração,Áudio,Apple,279.99,319.99,/images/airpods-pro2.jpg,"Cancelamento ativo de ruído, som espacial personalizado e chip H2.",True,4.7,180,True
+24,Sony WH-1000XM5,Áudio,Sony,379.99,429.99,/images/sony-wh1000xm5.jpg,Headphones com cancelamento de ruído líder de mercado.,True,4.9,350,True
+25,Logitech MX Master 3S,Acessórios,Logitech,119.99,139.99,/images/logitech-mxmaster3s.jpg,Rato sem fios ergonómico com rolagem ultrarrápida.,True,4.9,210,True
+26,Keychron K2 V2,Acessórios,Keychron,99.99,119.99,/images/keychron-k2.jpg,Teclado mecânico sem fios compacto com retroiluminação LED.,True,4.8,95,True
+27,AMD Ryzen 7 7800X3D,Componentes,AMD,429.0,499.0,/images/ryzen-7-7800x3d.jpg,Processador gaming campeão com 3D V‑Cache.,True,4.9,1900,True
+28,Intel Core i7-14700K,Componentes,Intel,429.0,469.0,/images/intel-i7-14700k.jpg,24‑cores híbridos para gaming e criação de conteúdo.,True,4.8,1500,True
+29,NVIDIA RTX 4070 Super,Componentes,NVIDIA,649.0,729.0,/images/rtx-4070-super.jpg,Equilíbrio preço/desempenho com DLSS 3.,True,4.9,2600,True
+30,Corsair RM850x (2023),Componentes,Corsair,169.0,189.0,/images/corsair-rm850x.jpg,Fonte 80+ Gold com cabos modulares.,True,4.9,2100,True
+31,Samsung 990 PRO 2TB NVMe,Armazenamento,Samsung,189.0,219.0,/images/samsung-990-pro-2tb.jpg,SSD PCIe 4.0 ultra rápido até 7450MB/s.,True,4.9,5000,True
+32,Seagate Barracuda 4TB,Armazenamento,Seagate,89.0,109.0,/images/seagate-barracuda-4tb.jpg,Armazenamento fiável e silencioso.,True,4.7,3400,True
+33,WD My Passport 2TB,Armazenamento,Western Digital,79.0,99.0,/images/wd-mypassport-2tb.jpg,Disco portátil com encriptação e backup automático.,True,4.8,2700,True
+34,Microsoft 365 Family 12 Meses,Software,Microsoft,69.0,99.0,/images/m365-family.jpg,"Inclui Word, Excel, PowerPoint e 1TB de OneDrive por utilizador.",True,4.8,5200,True
+35,Adobe Photography Plan 12 Meses,Software,Adobe,119.0,143.0,/images/adobe-photography-plan.jpg,Inclui Photoshop & Lightroom com 20GB de cloud.,True,4.9,4100,True
+36,iPhone 12 128GB Recondicionado,Recondicionados,Apple,429.0,479.0,/images/iphone-12-refurb.jpg,Equipamento inspecionado com bateria dentro dos padrões e 1 ano de garantia.,True,4.6,1800,True
+37,MacBook Air 2019 Recondicionado,Recondicionados,Apple,529.0,599.0,/images/macbook-air-2019-refurb.jpg,"Modelo leve e silencioso, entregue com diagnóstico completo.",True,4.5,900,True
