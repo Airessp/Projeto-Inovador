@@ -9,10 +9,10 @@
       "originalPrice": 1499.99,
       "image": "/images/iphone-15-pro-max.jpg",
       "description": "Topo de gama com chassis em titânio, chip A17 Pro, câmara principal 48MP e ecrã ProMotion 120Hz.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 320,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 2,
@@ -23,10 +23,10 @@
       "originalPrice": 1399.99,
       "image": "/images/galaxy-s24-ultra.jpg",
       "description": "Smartphone premium com S Pen, zoom ótico 10x e ecrã Dynamic AMOLED 120Hz.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 410,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 3,
@@ -37,10 +37,10 @@
       "originalPrice": 1099.99,
       "image": "/images/xiaomi-14-pro.jpg",
       "description": "Parceria Leica, Snapdragon topo de gama e carregamento turbo 120W.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 250,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 4,
@@ -51,10 +51,10 @@
       "originalPrice": 1199.99,
       "image": "/images/pixel8pro.jpg",
       "description": "Fotografia computacional avançada com 7 anos de atualizações garantidas.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 300,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 5,
@@ -65,10 +65,10 @@
       "originalPrice": 1099.99,
       "image": "/images/oneplus-12.jpg",
       "description": "Desempenho extremo com Snapdragon 8 Gen 3 e carregamento ultrarrápido.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 210,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 6,
@@ -79,10 +79,10 @@
       "originalPrice": 1499,
       "image": "/images/macbook-air-m3.jpg",
       "description": "Leve e eficiente, com chip M3 e até 18h de autonomia.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 210,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 7,
@@ -93,10 +93,10 @@
       "originalPrice": 2499,
       "image": "/images/macbook-pro14-m3pro.jpg",
       "description": "Performance extrema com chip M3 Pro e ecrã Liquid Retina XDR.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 180,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 8,
@@ -107,10 +107,10 @@
       "originalPrice": 2099,
       "image": "/images/asus-zephyrus-g14.jpg",
       "description": "Portátil gaming com Ryzen 9, RTX 4070 e ecrã 14'' QHD.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 160,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 9,
@@ -121,10 +121,10 @@
       "originalPrice": 1799,
       "image": "/images/dell-xps13plus.jpg",
       "description": "Ultrabook premium com design futurista e ecrã OLED 3.5K.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 100,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 10,
@@ -135,10 +135,10 @@
       "originalPrice": 1599,
       "image": "/images/hp-spectre-x360.jpg",
       "description": "Convertible 2-em-1 com ecrã OLED táctil e autonomia até 16h.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.6,
       "reviews": 95,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 11,
@@ -149,10 +149,10 @@
       "originalPrice": 649,
       "image": "/images/dell-ultrasharp-27.jpg",
       "description": "Monitor UHD 4K IPS com 99% sRGB e HDR600.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 150,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 12,
@@ -163,10 +163,10 @@
       "originalPrice": 499,
       "image": "/images/lg-ultragear-32.jpg",
       "description": "Monitor gaming 32'' QHD 165Hz com G-Sync.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 120,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 13,
@@ -177,10 +177,10 @@
       "originalPrice": 2499,
       "image": "/images/asus-proart-pa32dc.jpg",
       "description": "Monitor OLED profissional 32'' HDR com calibração de fábrica.",
-      "inStock": false,
+      "inStock": true,
       "rating": 5,
       "reviews": 40,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 14,
@@ -191,10 +191,10 @@
       "originalPrice": 1699,
       "image": "/images/samsung-odyssey-g9.jpg",
       "description": "Monitor curvo ultrawide 49'' QHD 240Hz.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 85,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 15,
@@ -205,10 +205,10 @@
       "originalPrice": 849,
       "image": "/images/ipad-air-m2.jpg",
       "description": "Poder M2 num corpo leve. Compatível com Apple Pencil Pro, ecrã Liquid Retina e Touch ID no topo.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 310,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 16,
@@ -219,10 +219,10 @@
       "originalPrice": 1399,
       "image": "/images/ipad-pro-129-m2.jpg",
       "description": "iPad mais poderoso para criadores. Ecrã mini-LED XDR, ProMotion 120Hz e câmaras com LiDAR.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 275,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 17,
@@ -233,10 +233,10 @@
       "originalPrice": 1099,
       "image": "/images/galaxy-tab-s9-plus.jpg",
       "description": "Ecrã AMOLED 12.4'' com S Pen incluída e resistência IP68.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 210,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 18,
@@ -247,10 +247,10 @@
       "originalPrice": 449,
       "image": "/images/xiaomi-pad-6.jpg",
       "description": "Ecrã 144Hz e Dolby Vision/Atmos a preço acessível.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 140,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 19,
@@ -261,10 +261,10 @@
       "originalPrice": 599.99,
       "image": "/images/ps5-slim.jpg",
       "description": "Nova versão Slim com armazenamento 1TB e Ray Tracing.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 1200,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 20,
@@ -275,10 +275,10 @@
       "originalPrice": 569.99,
       "image": "/images/xbox-series-x.jpg",
       "description": "Desempenho 4K com 120 FPS e SSD ultrarrápido.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 950,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 21,
@@ -289,10 +289,10 @@
       "originalPrice": 269.99,
       "image": "/images/dualsense-edge.jpg",
       "description": "Comando Pro com triggers ajustáveis e back paddles.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 400,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 22,
@@ -303,10 +303,10 @@
       "originalPrice": 139.99,
       "image": "/images/razer-blackshark-v2.jpg",
       "description": "Headset gaming com drivers Triforce e THX Spatial Audio.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 560,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 23,
@@ -317,10 +317,10 @@
       "originalPrice": 319.99,
       "image": "/images/airpods-pro2.jpg",
       "description": "Cancelamento ativo de ruído, som espacial personalizado e chip H2.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 180,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 24,
@@ -331,10 +331,10 @@
       "originalPrice": 429.99,
       "image": "/images/sony-wh1000xm5.jpg",
       "description": "Headphones com cancelamento de ruído líder de mercado.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 350,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 25,
@@ -345,10 +345,10 @@
       "originalPrice": 139.99,
       "image": "/images/logitech-mxmaster3s.jpg",
       "description": "Rato sem fios ergonómico com rolagem ultrarrápida.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 210,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 26,
@@ -359,10 +359,10 @@
       "originalPrice": 119.99,
       "image": "/images/keychron-k2.jpg",
       "description": "Teclado mecânico sem fios compacto com retroiluminação LED.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 95,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 27,
@@ -373,10 +373,10 @@
       "originalPrice": 499,
       "image": "/images/ryzen-7-7800x3d.jpg",
       "description": "Processador gaming campeão com 3D V‑Cache.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 1900,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 28,
@@ -387,10 +387,10 @@
       "originalPrice": 469,
       "image": "/images/intel-i7-14700k.jpg",
       "description": "24‑cores híbridos para gaming e criação de conteúdo.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 1500,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 29,
@@ -401,10 +401,10 @@
       "originalPrice": 729,
       "image": "/images/rtx-4070-super.jpg",
       "description": "Equilíbrio preço/desempenho com DLSS 3.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 2600,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 30,
@@ -415,10 +415,10 @@
       "originalPrice": 189,
       "image": "/images/corsair-rm850x.jpg",
       "description": "Fonte 80+ Gold com cabos modulares.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 2100,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 31,
@@ -429,10 +429,10 @@
       "originalPrice": 219,
       "image": "/images/samsung-990-pro-2tb.jpg",
       "description": "SSD PCIe 4.0 ultra rápido até 7450MB/s.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 5000,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 32,
@@ -443,10 +443,10 @@
       "originalPrice": 109,
       "image": "/images/seagate-barracuda-4tb.jpg",
       "description": "Armazenamento fiável e silencioso.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.7,
       "reviews": 3400,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 33,
@@ -457,10 +457,10 @@
       "originalPrice": 99,
       "image": "/images/wd-mypassport-2tb.jpg",
       "description": "Disco portátil com encriptação e backup automático.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 2700,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 34,
@@ -471,10 +471,10 @@
       "originalPrice": 99,
       "image": "/images/m365-family.jpg",
       "description": "Inclui Word, Excel, PowerPoint e 1TB de OneDrive por utilizador.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.8,
       "reviews": 5200,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 35,
@@ -485,10 +485,10 @@
       "originalPrice": 143,
       "image": "/images/adobe-photography-plan.jpg",
       "description": "Inclui Photoshop & Lightroom com 20GB de cloud.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.9,
       "reviews": 4100,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 36,
@@ -499,10 +499,10 @@
       "originalPrice": 479,
       "image": "/images/iphone-12-refurb.jpg",
       "description": "Equipamento inspecionado com bateria dentro dos padrões e 1 ano de garantia.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.6,
       "reviews": 1800,
-      "isPromo": false
+      "isPromo": true
     },
     {
       "id": 37,
@@ -513,10 +513,10 @@
       "originalPrice": 599,
       "image": "/images/macbook-air-2019-refurb.jpg",
       "description": "Modelo leve e silencioso, entregue com diagnóstico completo.",
-      "inStock": false,
+      "inStock": true,
       "rating": 4.5,
       "reviews": 900,
-      "isPromo": false
+      "isPromo": true
     }
   ]
 }

@@ -23,7 +23,7 @@ export function HeroBanner() {
               Ver Ofertas Especiais
             </Button>
           </Link>
-          <Link href="/produtos?categoria=portateis">
+          <Link href="/produtos?categoria=Computadores">
             <Button
               size="lg"
               variant="outline"

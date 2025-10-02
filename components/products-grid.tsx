@@ -56,7 +56,7 @@ function ProductsGridImpl({
 
   // 🔹 Toggle favoritos
   const toggleFavorite = (id: number | string) => {
-    const idStr = String(id) // 👈 força sempre string
+    const idStr = String(id)
     const storageKey = "projeto-inovador-favorites-guest"
     const existing = JSON.parse(localStorage.getItem(storageKey) || "[]")
 
@@ -94,9 +94,9 @@ function ProductsGridImpl({
       const q = searchTerm.toLowerCase()
       filtered = filtered.filter(
         (p) =>
-          p.name.toLowerCase().includes(q) ||
-          p.brand.toLowerCase().includes(q) ||
-          p.category.toLowerCase().includes(q)
+          p.name?.toLowerCase().includes(q) ||
+          p.brand?.toLowerCase().includes(q) ||
+          p.category?.toLowerCase().includes(q)
       )
     }
     setFilteredProducts(filtered)
@@ -111,7 +111,7 @@ function ProductsGridImpl({
         case "price-high":
           return b.price - a.price
         case "rating":
-          return b.rating - a.rating
+          return (b.rating ?? 0) - (a.rating ?? 0)
         case "name":
         default:
           return a.name.localeCompare(b.name)
@@ -188,14 +188,14 @@ function ProductsGridImpl({
                 variant="outline"
                 className="text-xs font-semibold text-yellow-600 border-yellow-200 bg-yellow-50 px-3 py-1 rounded-full mb-2"
               >
-                {product.category}
+                {product.category || "Outros"}
               </Badge>
 
               <h3 className="font-bold text-lg mb-1 line-clamp-2 group-hover:text-yellow-600 transition-colors duration-300">
                 {product.name}
               </h3>
               <p className="text-sm text-gray-500 mb-2 font-medium uppercase tracking-wide">
-                {product.brand}
+                {product.brand || "Genérico"}
               </p>
 
               <div className="flex items-center gap-1 mb-2">
@@ -203,21 +203,21 @@ function ProductsGridImpl({
                   <Star
                     key={i}
                     className={`w-4 h-4 ${
-                      i < Math.floor(product.rating)
+                      i < Math.floor(product.rating ?? 0)
                         ? "fill-yellow-400 text-yellow-400"
                         : "text-gray-300"
                     }`}
                   />
                 ))}
                 <span className="text-sm font-bold text-gray-700 ml-1">
-                  {product.rating}
+                  {product.rating ?? 0}
                 </span>
               </div>
 
               <div className="mb-2">
                 <div className="flex items-baseline gap-2">
                   <span className="text-2xl font-black text-yellow-600">
-                    {`${product.price.toFixed(2)}€`}
+                    {`${(product.price ?? 0).toFixed(2)}€`}
                   </span>
                   {product.originalPrice &&
                     product.originalPrice > product.price && (
@@ -229,7 +229,7 @@ function ProductsGridImpl({
               </div>
 
               <div className="flex gap-2 mt-2">
-                <Link href={`/produto/${product.id}`} className="flex-1">
+                <Link href={`/produto/${String(product.id)}`} className="flex-1">
                   <Button className="w-full font-bold py-3 rounded-xl bg-gradient-to-r from-yellow-500 to-yellow-600 text-black">
                     Ver Detalhes
                   </Button>

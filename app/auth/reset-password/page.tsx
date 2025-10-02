@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -13,13 +13,20 @@ import { Footer } from "@/components/footer"
 
 export default function ResetPasswordPage() {
   const [password, setPassword] = useState("")
+  const [email, setEmail] = useState("")
+  const [code, setCode] = useState("")
   const [error, setError] = useState("")
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
   const router = useRouter()
 
-  const email = localStorage.getItem("reset_email") || ""
-  const code = localStorage.getItem("reset_code") || ""
+  // só lê localStorage no cliente
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setEmail(localStorage.getItem("reset_email") || "")
+      setCode(localStorage.getItem("reset_code") || "")
+    }
+  }, [])
 
   async function handleReset(e: React.FormEvent) {
     e.preventDefault()
@@ -37,8 +44,10 @@ export default function ResetPasswordPage() {
       if (!res.ok) throw new Error(data?.message || "Erro interno")
 
       setMessage("Password alterada com sucesso! Pode iniciar sessão.")
-      localStorage.removeItem("reset_email")
-      localStorage.removeItem("reset_code")
+      if (typeof window !== "undefined") {
+        localStorage.removeItem("reset_email")
+        localStorage.removeItem("reset_code")
+      }
       setTimeout(() => router.push("/login"), 1500)
     } catch (err: any) {
       setError(err.message || "Erro interno")

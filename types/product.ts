@@ -1,7 +1,8 @@
 export type Product = {
   id: number
   name: string
-  category: string
+  category?: string         // 🔹 deixamos opcional
+  categories?: string[]     // 🔹 novo, array
   brand: string
   price: number
   originalPrice?: number

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -13,11 +13,18 @@ import { Footer } from "@/components/footer"
 
 export default function VerifyResetPage() {
   const [code, setCode] = useState("")
+  const [email, setEmail] = useState("")
   const [error, setError] = useState("")
   const [message, setMessage] = useState("")
   const [loading, setLoading] = useState(false)
   const router = useRouter()
-  const email = localStorage.getItem("reset_email") || ""
+
+  // lê email só no cliente
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setEmail(localStorage.getItem("reset_email") || "")
+    }
+  }, [])
 
   async function handleVerify(e: React.FormEvent) {
     e.preventDefault()
@@ -35,7 +42,9 @@ export default function VerifyResetPage() {
       if (!res.ok) throw new Error(data?.message || "Erro interno")
 
       setMessage("Código validado! Vamos redefinir a password...")
-      localStorage.setItem("reset_code", code)
+      if (typeof window !== "undefined") {
+        localStorage.setItem("reset_code", code)
+      }
       setTimeout(() => router.push("/auth/reset-password"), 1500)
     } catch (err: any) {
       setError(err.message || "Erro interno")

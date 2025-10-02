@@ -1,41 +1,47 @@
-import { NextResponse } from "next/server";
+// app/api/orders/create/route.ts
+import { NextResponse } from "next/server"
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json();
+    const body = await req.json()
 
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_WC_API_URL}/orders`,
-      {
-        method: "POST",
-        headers: {
-          "Authorization":
-            "Basic " +
-            Buffer.from(
-              `${process.env.WC_CONSUMER_KEY}:${process.env.WC_CONSUMER_SECRET}`
-            ).toString("base64"),
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      }
-    );
+    const url = `${process.env.WC_API_URL?.replace(/\/$/, "")}/orders`
+    const auth = Buffer.from(
+      `${process.env.WC_CONSUMER_KEY}:${process.env.WC_CONSUMER_SECRET}`
+    ).toString("base64")
 
-    if (!res.ok) {
-      const errorText = await res.text();
-      console.error("❌ WooCommerce API error:", errorText);
-      return NextResponse.json(
-        { error: "WooCommerce API error", details: errorText },
-        { status: res.status }
-      );
+    const res = await fetch(url, {
+      method: "POST",
+      headers: {
+        Authorization: `Basic ${auth}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+      cache: "no-store",
+    })
+
+    const text = await res.text()
+    let data: any = null
+    try {
+      data = text ? JSON.parse(text) : null
+    } catch {
+      data = { raw: text } // caso Woo retorne HTML
     }
 
-    const data = await res.json();
-    return NextResponse.json(data);
+    if (!res.ok) {
+      console.error("❌ WooCommerce API error:", data)
+      return NextResponse.json(
+        { error: "WooCommerce API error", details: data },
+        { status: res.status }
+      )
+    }
+
+    return NextResponse.json(data, { status: 201 })
   } catch (err: any) {
-    console.error("❌ API Route error:", err.message);
+    console.error("❌ API /orders/create error:", err)
     return NextResponse.json(
-      { error: "Internal Server Error", details: err.message },
+      { error: "Internal Server Error", details: err?.message || err },
       { status: 500 }
-    );
+    )
   }
 }

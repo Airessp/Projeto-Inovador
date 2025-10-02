@@ -18,6 +18,7 @@ export default function FavoritosPage() {
   const [products, setProducts] = useState<Product[]>([])
   const [storageKey, setStorageKey] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   // 🔹 Definir chave única por utilizador
   useEffect(() => {
@@ -52,7 +53,7 @@ export default function FavoritosPage() {
       setFavorites([])
     }
 
-    fetch("/products.json") // 👈 corrigido (não /data/products.json)
+    fetch("/data/products.json") // 👈 corrigido
       .then((res) => res.json())
       .then((data) => {
         console.log("📦 Produtos carregados:", data.products)
@@ -91,7 +92,7 @@ export default function FavoritosPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <Header />
+      <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       <main className="flex-1 container mx-auto px-6 py-10">
         <h1 className="text-3xl font-bold mb-6">Lista de Desejos</h1>
 

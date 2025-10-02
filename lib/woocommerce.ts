@@ -34,7 +34,7 @@ function authHeader() {
 }
 
 // ------------------- GENERIC FETCH -------------------
-export async function wcFetchServer(path: string, init?: RequestInit) {
+export async function wcFetch(path: string, init?: RequestInit) {
   if (!WC_API_URL || !WC_KEY || !WC_SECRET) {
     throw new Error("❌ Credenciais WooCommerce em falta no servidor (.env.local)")
   }
@@ -68,54 +68,47 @@ export async function wcFetchServer(path: string, init?: RequestInit) {
 }
 
 // ------------------- CUSTOMERS -------------------
-export async function getCustomerByEmailServer(email: string) {
-  const arr = await wcFetchServer(
-    `/customers?email=${encodeURIComponent(email)}&per_page=1`
-  )
+export async function getCustomerByEmail(email: string) {
+  const arr = await wcFetch(`/customers?email=${encodeURIComponent(email)}&per_page=1`)
   return Array.isArray(arr) && arr.length ? arr[0] : null
 }
 
-export async function createCustomerServer(data: AnyObj) {
-  return wcFetchServer(`/customers`, {
+export async function createCustomer(data: AnyObj) {
+  return wcFetch(`/customers`, {
     method: "POST",
     body: JSON.stringify(data),
   })
 }
 
-export async function updateCustomerServer(id: number, data: AnyObj) {
-  return wcFetchServer(`/customers/${id}`, {
+export async function updateCustomer(id: number, data: AnyObj) {
+  return wcFetch(`/customers/${id}`, {
     method: "PUT",
     body: JSON.stringify(data),
   })
 }
 
 // ------------------- ORDERS -------------------
-export async function getOrdersByCustomerServer(customerId: number) {
-  return wcFetchServer(
-    `/orders?customer=${customerId}&per_page=50&orderby=date&order=desc`
-  )
+export async function getOrdersByCustomer(customerId: number) {
+  return wcFetch(`/orders?customer=${customerId}&per_page=50&orderby=date&order=desc`)
 }
 
-export async function getOrderByIdServer(orderId: number) {
-  return wcFetchServer(`/orders/${orderId}`)
+export async function getOrderById(orderId: number) {
+  return wcFetch(`/orders/${orderId}`)
 }
 
 export async function createOrderServer(data: AnyObj) {
-  return wcFetchServer(`/orders`, {
+  return wcFetch(`/orders`, {
     method: "POST",
     body: JSON.stringify(data),
   })
 }
 
 // ------------------- PRODUCTS -------------------
-export async function getProductsServer(
-  categoria?: string,
-  maxPrice?: number
-) {
+export async function getProducts(categoria?: string, maxPrice?: number) {
   let path = `/products?per_page=50`
 
   if (categoria) path += `&category=${encodeURIComponent(categoria)}`
   if (maxPrice) path += `&max_price=${encodeURIComponent(maxPrice)}`
 
-  return wcFetchServer(path)
+  return wcFetch(path)
 }

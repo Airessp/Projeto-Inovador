@@ -2,13 +2,17 @@ import { NextResponse } from "next/server"
 import { getCustomerByEmailServer } from "@/lib/woocommerce"
 import nodemailer from "nodemailer"
 
+export const dynamic = "force-dynamic" // ⚡ garante runtime dinâmico no Next
+
 type ResetEntry = { code: string; expiresAt: number; email: string }
 const STORE = new Map<string, ResetEntry>() // email -> entry (in-memory)
 
+// 🔹 Gerar código de 6 dígitos
 function genCode() {
-  return Math.floor(100000 + Math.random() * 900000).toString() // 6 dígitos
+  return Math.floor(100000 + Math.random() * 900000).toString()
 }
 
+// 🔹 Função de envio de email (SMTP ou simulação)
 async function sendEmail(to: string, subject: string, html: string) {
   const host = process.env.SMTP_HOST
   const port = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : undefined
@@ -16,7 +20,7 @@ async function sendEmail(to: string, subject: string, html: string) {
   const pass = process.env.SMTP_PASS
   const from = process.env.EMAIL_FROM || process.env.SMTP_USER || "no-reply@local"
 
-  // ⚡ Se não houver config SMTP → simulação
+  // Se não houver config SMTP → simulação
   if (!host || !port || !user || !pass) {
     console.warn("⚠️ SMTP não configurado — a enviar código via logs (simulação)")
     console.log(`EMAIL TO: ${to}\nSUBJECT: ${subject}\nHTML: ${html}`)
@@ -41,29 +45,37 @@ async function sendEmail(to: string, subject: string, html: string) {
   }
 }
 
+// 🔹 Rota para pedir reset de password
 export async function POST(req: Request) {
   try {
-    const body = await req.json()
+    let body: any
+    try {
+      body = await req.json()
+    } catch {
+      return NextResponse.json({ message: "Body inválido" }, { status: 400 })
+    }
+
     const email = (body?.email || "").toString().trim().toLowerCase()
     if (!email) {
       return NextResponse.json({ message: "Email obrigatório" }, { status: 400 })
     }
 
-    // confirmar se existe cliente no WooCommerce
+    // Confirmar se existe cliente no WooCommerce
     const customer = await getCustomerByEmailServer(email)
     if (!customer) {
-      // não dizemos explicitamente se existe para não dar info a atacantes
+      // Não revelar info → resposta genérica
       return NextResponse.json(
         { message: "Se existir conta, será enviado um email com instruções." },
         { status: 200 }
       )
     }
 
-    // gerar código temporário
+    // Gerar código temporário
     const code = genCode()
     const expiresAt = Date.now() + 1000 * 60 * 15 // 15 mins
     STORE.set(email, { code, expiresAt, email })
 
+    // Email com instruções
     const html = `<p>Olá,</p>
       <p>Usa o código <strong>${code}</strong> para repor a tua palavra-passe. 
       Este código expira em 15 minutos.</p>
@@ -76,10 +88,10 @@ export async function POST(req: Request) {
       { status: 200 }
     )
   } catch (err: any) {
-    console.error("request-reset error:", err)
+    console.error("❌ request-reset error:", err)
     return NextResponse.json({ message: "Erro interno" }, { status: 500 })
   }
 }
 
-// ⚡ Exporta o STORE para outras rotas (ex: verify-reset)
+// ⚡ Exporta o STORE para outras rotas (ex: verify-reset ou reset-password)
 export { STORE }

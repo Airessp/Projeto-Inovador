@@ -10,8 +10,7 @@ function fail(status: number, message: string, details?: any) {
 }
 
 function authHeader() {
-  const token = Buffer.from(`${WC_KEY}:${WC_SECRET}`).toString("base64")
-  return `Basic ${token}`
+  return "Basic " + Buffer.from(`${WC_KEY}:${WC_SECRET}`).toString("base64")
 }
 
 export async function PUT(
@@ -19,11 +18,22 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
-    const id = params.id
+    if (!WC_API_URL || !WC_KEY || !WC_SECRET) {
+      return fail(500, "❌ Credenciais WooCommerce em falta no servidor")
+    }
+
+    const id = params?.id
+    if (!id) {
+      return fail(400, "ID do cliente em falta")
+    }
+
     const data = await req.json()
+    if (!data || Object.keys(data).length === 0) {
+      return fail(400, "Body vazio: nada para atualizar")
+    }
 
     const res = await fetch(
-      `${WC_API_URL!.replace(/\/$/, "")}/customers/${id}`,
+      `${WC_API_URL.replace(/\/$/, "")}/customers/${id}`,
       {
         method: "PUT",
         headers: {
@@ -36,16 +46,24 @@ export async function PUT(
     )
 
     const text = await res.text()
-    const json = text ? JSON.parse(text) : null
+    let json: any = null
+    try {
+      json = text ? JSON.parse(text) : null
+    } catch {
+      console.warn("⚠️ Resposta Woo não era JSON:", text?.slice(0, 200))
+    }
+
     if (!res.ok) {
       return fail(
         res.status,
-        json?.message || json?.error || "Falha a atualizar cliente",
+        json?.message || json?.error || `Falha a atualizar cliente [${res.status}]`,
         json
       )
     }
-    return NextResponse.json(json)
+
+    return NextResponse.json(json, { status: 200 })
   } catch (e: any) {
-    return fail(400, e?.message || "Erro a atualizar cliente")
+    console.error("❌ erro update customer:", e?.message || e)
+    return fail(500, e?.message || "Erro interno ao atualizar cliente")
   }
 }

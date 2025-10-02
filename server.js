@@ -1,24 +1,17 @@
 // server.js
 const { createServer } = require("http");
-const { parse } = require("url");
 const next = require("next");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+const PORT = process.env.PORT || 3000;
+const HOST = "0.0.0.0";
+
 app.prepare().then(() => {
-  createServer(async (req, res) => {
-    try {
-      const parsedUrl = parse(req.url, true);
-      await handle(req, res, parsedUrl);
-    } catch (err) {
-      console.error("Erro no servidor:", err);
-      res.statusCode = 500;
-      res.end("Erro interno do servidor");
-    }
-  }).listen(process.env.PORT || 3000, (err) => {
+  createServer((req, res) => handle(req, res)).listen(PORT, HOST, (err) => {
     if (err) throw err;
-    console.log(`🚀 Servidor a correr em http://localhost:${process.env.PORT || 3000}`);
+    console.log(`✅ Next.js a correr em http://${HOST}:${PORT} (NODE_ENV=${process.env.NODE_ENV})`);
   });
 });

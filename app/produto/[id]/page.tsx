@@ -19,15 +19,17 @@ import Link from "next/link"
 type Product = {
   id: number
   name: string
-  category: string
+  categories: string[]
   brand?: string
   price: number
   originalPrice?: number
   image: string
   description?: string
-  stock: number
+  inStock: boolean
+  stock?: number
   rating?: number
   reviews?: number
+  isPromo?: boolean
 }
 
 export default function ProductPage() {
@@ -43,20 +45,22 @@ export default function ProductPage() {
       try {
         setLoading(true)
 
-        // Carregar todos os produtos do JSON local
-        const res = await fetch("/data/products.json", { cache: "no-store" })
-        if (!res.ok) throw new Error("Erro ao carregar produtos")
-        const data = await res.json()
-        const list: Product[] = data.products || []
-
-        // Procurar produto atual
-        const current = list.find((p) => String(p.id) === String(id)) || null
+        // 🔹 Buscar produto específico
+        const res = await fetch(`/api/products/${id}`, { cache: "no-store" })
+        if (!res.ok) throw new Error("Erro ao carregar produto")
+        const current: Product = await res.json()
         setProduct(current)
 
-        // Produtos relacionados (mesma categoria)
+        // 🔹 Buscar todos para relacionados
+        const allRes = await fetch("/api/products", { cache: "no-store" })
+        const all: Product[] = await allRes.json()
+
         if (current) {
-          const sameCat = list.filter(
-            (x) => x.category === current.category && String(x.id) !== String(current.id)
+          const sameCat = all.filter(
+            (x) =>
+              x.categories?.some(
+                (c) => c.toLowerCase() === current.categories?.[0]?.toLowerCase()
+              ) && String(x.id) !== String(current.id)
           )
           setRelatedProducts(sameCat.slice(0, 4))
         }
@@ -69,6 +73,7 @@ export default function ProductPage() {
     load()
   }, [id])
 
+  // 🔹 Ações
   const addToCart = () => {
     if (!product) return
     const savedCart = localStorage.getItem("projeto-inovador-cart")
@@ -99,11 +104,12 @@ export default function ProductPage() {
 
   const shareProduct = () => {
     if (!product) return
-    const url = `${window.location.origin}/produto/${product.id}`
+    const url = `${window.location.origin}/produtos/${product.id}`
     navigator.clipboard.writeText(url)
     alert(`🔗 Link copiado: ${url}`)
   }
 
+  // 🔹 Loading
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
@@ -115,6 +121,7 @@ export default function ProductPage() {
     )
   }
 
+  // 🔹 Não encontrado
   if (!product) {
     return (
       <div className="min-h-screen bg-background">
@@ -135,6 +142,7 @@ export default function ProductPage() {
     )
   }
 
+  // 🔹 Página de detalhes
   return (
     <div className="min-h-screen bg-background">
       <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
@@ -145,13 +153,16 @@ export default function ProductPage() {
             <BreadcrumbNav
               items={[
                 { label: "Produtos", href: "/produtos" },
-                { label: product.category, href: `/produtos?categoria=${product.category.toLowerCase()}` },
+                {
+                  label: product.categories?.[0] || "Outros",
+                  href: `/produtos?categoria=${(product.categories?.[0] || "outros").toLowerCase()}`,
+                },
                 { label: product.name },
               ]}
             />
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
-              {/* Imagens do produto */}
+              {/* Imagem */}
               <div className="space-y-4">
                 <div className="aspect-square overflow-hidden rounded-lg bg-muted">
                   <img
@@ -162,10 +173,12 @@ export default function ProductPage() {
                 </div>
               </div>
 
-              {/* Detalhes do produto */}
+              {/* Detalhes */}
               <div className="space-y-6">
                 <div>
-                  <Badge variant="outline" className="mb-2">{product.category}</Badge>
+                  <Badge variant="outline" className="mb-2">
+                    {product.categories?.[0] || "Outros"}
+                  </Badge>
                   <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
                   <p className="text-muted-foreground">{product.brand}</p>
                 </div>
@@ -178,7 +191,9 @@ export default function ProductPage() {
                 </div>
 
                 <PriceDisplay price={product.price} originalPrice={product.originalPrice} size="lg" />
-                <p className="text-muted-foreground">{product.description || "Sem descrição disponível."}</p>
+                <p className="text-muted-foreground">
+                  {product.description || "Sem descrição disponível."}
+                </p>
 
                 <div className="flex gap-3">
                   <Button size="lg" className="flex-1" onClick={addToCart}>
@@ -223,12 +238,12 @@ export default function ProductPage() {
                   </div>
                   <div className="flex justify-between py-2 border-b">
                     <span className="font-medium">Categoria</span>
-                    <span className="text-muted-foreground">{product.category}</span>
+                    <span className="text-muted-foreground">{product.categories?.[0] || "Outros"}</span>
                   </div>
                   <div className="flex justify-between py-2 border-b">
                     <span className="font-medium">Disponibilidade</span>
                     <span className="text-muted-foreground">
-                      {product.stock > 0 ? "Em Stock" : "Esgotado"}
+                      {product.inStock ? "Em Stock" : "Esgotado"}
                     </span>
                   </div>
                   <div className="flex justify-between py-2 border-b">
