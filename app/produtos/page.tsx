@@ -24,7 +24,7 @@ export default function ProductsPage() {
 
   const searchParams = useSearchParams()
 
-  // 🔹 Carregar produtos (sempre do JSON via API)
+  // 🔹 Carregar produtos
   useEffect(() => {
     const load = async () => {
       try {
@@ -66,7 +66,7 @@ export default function ProductsPage() {
     if (brand) {
       setSelectedBrand(brand)
       if (brand !== "outros") {
-        filtered = filtered.filter((p) => normalize(p.brand) === brand)
+        filtered = filtered.filter((p) => normalize(p.brand) === normalize(brand))
       } else {
         const excluidos = ["apple", "samsung", "xiaomi", "google", "oneplus", "hp", "dell", "asus", "sony", "microsoft"]
         filtered = filtered.filter((p) => !excluidos.includes(normalize(p.brand)))

@@ -5,12 +5,12 @@ const featuredCategories = [
   {
     name: "Apple",
     image: "/Apple-Logosu.png",
-    href: "/produtos?categoria=Apple", // 🔹 Apple é filtrado por brand, não por category
+    href: "/produtos?brand=Apple", // 🔹 Apple é filtrado por brand
   },
-   {
+  {
     name: "Smartphones",
     image: "/Smartphones.jpeg",
-    href: "/produtos?categoria=Smartphones", // 🔹
+    href: "/produtos?categoria=Smartphones",
   },
   {
     name: "Componentes",
@@ -32,12 +32,12 @@ const featuredCategories = [
     image: "/laptop-notebook-computer-portable.jpg",
     href: "/produtos?categoria=Computadores", // 🔹 no JSON laptops também estão em "Computadores"
   },
-   {
+  {
     name: "Armazenamento",
     image: "/armazenamento.webp",
-    href: "/produtos?categoria=Armazenamento", // 🔹 no JSON laptops também estão em "Computadores"
+    href: "/produtos?categoria=Armazenamento",
   },
-   {
+  {
     name: "Software",
     image: "/software.jpg",
     href: "/produtos?categoria=Software",
